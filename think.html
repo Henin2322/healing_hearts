@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThingSpeak Feeds Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        canvas {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ThingSpeak Data Graph</h1>
+    <canvas id="myChart"></canvas>
+
+    <script>
+        // API endpoint for the ThingSpeak channel feeds
+        const apiUrl = 'https://api.thingspeak.com/channels/2667396/feeds.json?api_key=6TPIYG2DADMHNOLN&results=2';
+
+        // Function to fetch and plot the feeds
+        async function fetchAndPlotData() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                // Extract feed values and timestamps
+                const feeds = data.feeds;
+                const labels = feeds.map(feed => new Date(feed.created_at).toLocaleString());  // Timestamps
+                const values = feeds.map(feed => feed.field1);  // Values from field1
+
+                // Plot the data using Chart.js
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const myChart = new Chart(ctx, {
+                    type: 'line', // Line chart
+                    data: {
+                        labels: labels, // Timestamps for x-axis
+                        datasets: [{
+                            label: 'Field 1 Data',
+                            data: values, // Values for y-axis
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4 // Smooth curve
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Timestamp'
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Value'
+                                }
+                            }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error fetching or plotting ThingSpeak feeds:', error);
+            }
+        }
+
+        // Fetch data and plot graph when the page loads
+        fetchAndPlotData();
+    </script>
+</body>
+
+</html>

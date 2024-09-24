@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healing Hearts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .alert-heart-rate {
+            margin: 20px 0;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white">
+        <div class="container text-center">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="logoo.png" alt="Clinic Logo" width="50" height="50" class="d-inline-block align-top">
+                    Healing Hearts
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+                        <li class="nav-item"><a class="btn btn-light mx-2" href="#">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="hero text-center">
+        <div class="container">
+            <h2>Your Health, Our Commitment</h2>
+            <p>Expert care and compassion for all your medical needs.</p>
+        </div>
+    </section>
+<br>
+    <section class="namelist">
+        <h3>EMPLOYEE'S LIST</h3>
+        <a class="name" href="micky.html">MITHILESH K S</a><br>
+        <a class="name" href="felix.html">ALLWYN FELIX</a><br>
+        <a class="name" href="clatson.html">CLATSON</a>
+        <style>
+            .namelist{
+                text-align: center;
+                font-size: 20px;
+            }
+        </style>
+    </section>
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h3>General Medicine</h3>
+                    <p>Comprehensive health care for all ages.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h3>Pediatrics</h3>
+                    <p>Specialized care for children from infancy to adolescence.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h3>Emergency Services</h3>
+                    <p>24/7 emergency care for urgent medical needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-light py-5">
+        <div class="container text-center">
+            <h2>About Us</h2>
+            <p>Our clinic is dedicated to providing exceptional health care services with a focus on patient comfort and satisfaction.</p>
+        </div>
+    </section>
+
+    <section id="resources" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Patient Resources</h2>
+            <ul class="list-unstyled text-center">
+                <li><a href="#">Patient Forms</a></li>
+                <li><a href="#">Health Articles</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center">Contact Us</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-primary text-white text-center py-3">
+        <p>&copy; 2024 Premier Medical Clinic. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        
+
+            // Simulated heart rate measurement
+            function simulateHeartRate() {
+                const heartRate = Math.floor(Math.random() * (100 - 60 + 1)) + 60; // Random heart rate between 60 and 100
+                const riskLevel = heartRate < 60 ? "Low" : heartRate > 100 ? "High" : "Normal";
+                
+                document.getElementById('heartRateValue').textContent = heartRate;
+                document.getElementById('heartRateRisk').textContent = riskLevel;
+            }
+
+            simulateHeartRate();
+        
+    </script>
+</body>
+</html>
